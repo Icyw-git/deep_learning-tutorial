@@ -1,153 +1,159 @@
 # 深度学习学习项目
 
+<p align="center">
+    <img src="https://img.shields.io/badge/Python-3.7+-blue.svg" alt="Python版本">
+    <img src="https://img.shields.io/badge/PyTorch-1.8+-red.svg" alt="PyTorch版本">
+    <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
+</p>
+
 ## 项目简介
 
-这是一个基于 PyTorch 的深度学习学习项目，包含了多种深度学习模型的实现和案例，涵盖了从基础张量操作到高级模型应用的完整学习路径。项目旨在帮助初学者理解深度学习的核心概念和实践应用。
+这是一个基于 PyTorch 的深度学习学习项目，包含了从基础张量操作到高级模型应用的完整学习路径。项目旨在帮助初学者理解深度学习的核心概念和实践应用，所有教程和注释均为中文，适合中文用户学习。
 
 ## 目录结构
 
 ```
 deep_learning/
-├── 张量.ipynb             # 张量操作基础教程
-├── 神经网络.ipynb           # 神经网络基础
-├── 梯度下降优化.ipynb        # 优化算法实现
-├── 正则化.ipynb            # 正则化技术
-├── CNN卷积模型.ipynb        # 卷积神经网络
-├── RNN卷积模型.ipynb        # 循环神经网络
-├── 深度学习模型简介.md         # 深度学习模型理论介绍
-├── 图像识别案例.ipynb         # MNIST图像识别实战
-├── 手机价格分类案例.ipynb       # 手机价格预测
-├── 歌词生成器案例.ipynb        # 基于RNN的歌词生成
-├── 歌词.py                  # 歌词处理工具
-├── photo.jpg                # 示例图片
-├── .gitignore               # Git忽略文件
-└── README.MD                # 项目说明文档
+├── notebooks/                    # Jupyter notebooks
+│   ├── 基础知识/                 # 基础概念教程
+│   │   ├── 张量.ipynb           # 张量操作基础
+│   │   ├── 神经网络.ipynb        # 神经网络基础
+│   │   ├── 梯度下降优化.ipynb     # 优化算法实现
+│   │   ├── 正则化.ipynb          # 正则化技术
+│   │   └── 深度学习模型简介.md      # 模型理论介绍
+│   ├── cnn/                    # 卷积神经网络
+│   │   └── CNN卷积模型.ipynb      # CNN实现与应用
+│   ├── rnn/                    # 循环神经网络
+│   │   └── RNN卷积模型.ipynb      # RNN实现与应用
+│   └── 综合案例/                # 实战案例
+│       ├── 图像识别案例.ipynb      # MNIST手写数字识别
+│       ├── 手机价格分类案例.ipynb    # 手机价格预测
+│       └── 歌词生成器案例.ipynb     # 基于RNN的歌词生成
+├── 歌词.py                      # 歌词处理工具
+├── requirements.txt             # Python依赖包
+├── .gitignore                  # Git忽略文件
+├── LICENSE                     # MIT许可证
+└── README.md                   # 项目说明文档
 ```
 
-## 主要文件说明
+## 快速开始
 
-### 基础理论与操作
-- **张量.ipynb**：详细介绍PyTorch张量的创建、操作、索引、运算、类型转换以及自动求导机制
-- **神经网络.ipynb**：神经网络基础结构、前向传播、反向传播原理
-- **梯度下降优化.ipynb**：各种优化算法（SGD、Adam等）的实现与比较
-- **正则化.ipynb**：防止过拟合的正则化技术
-- **深度学习模型简介.md**：详细介绍各种深度学习模型的原理和应用场景
+### 如何运行
 
-### 模型实现
-- **CNN卷积模型.ipynb**：卷积神经网络的实现与应用
-- **RNN卷积模型.ipynb**：循环神经网络的实现与应用
-
-### 实战案例
-- **图像识别案例.ipynb**：基于MNIST数据集的手写数字识别
-- **手机价格分类案例.ipynb**：手机价格预测模型
-- **歌词生成器案例.ipynb**：基于RNN的中文歌词生成
-
-## 环境配置
-
-### 所需依赖
-- Python 3.7+
-- PyTorch 1.8+
-- torchvision
-- numpy
-- matplotlib
-- seaborn
-- jieba（用于中文分词）
-- torchsummary（模型结构可视化）
-
-### 安装依赖
+### 1. 环境配置
 
 ```bash
-# 使用pip安装
-pip install torch torchvision numpy matplotlib seaborn jieba torchsummary
+# 安装依赖包
+pip install -r requirements.txt
 
 # 或使用conda
-conda install pytorch torchvision numpy matplotlib seaborn
-pip install jieba torchsummary
+conda create -n deep_learning python=3.8
+conda activate deep_learning
+pip install -r requirements.txt
 ```
 
-## 如何运行
+### 2. 运行教程
 
-1. **克隆项目**：
-   ```bash
-   git clone <repository_url>
-   cd deep_learning
-   ```
+```bash
+# 启动Jupyter Notebook
+jupyter notebook
 
-2. **运行notebook**：
-   ```bash
-   jupyter notebook
-   ```
+# 或使用Jupyter Lab
+jupyter lab
+```
 
-3. **按照学习路径顺序运行**：
-   - 张量基础 → 神经网络基础 → 优化算法 → 模型实现 → 实战案例
+然后按照学习路径顺序打开notebooks学习。
 
-## 核心功能模块
+### 3. 运行测试
 
-### 1. 张量操作
-- 张量创建与初始化
-- 索引与切片
-- 数学运算
-- 维度操作（reshape、permute等）
-- 自动求导机制
+```bash
+# 运行所有测试
+python -m pytest tests/ -v
 
-### 2. 神经网络
-- 全连接网络
-- 卷积神经网络
-- 循环神经网络
-- 模型训练与评估
+# 运行特定测试文件
+python -m pytest tests/test_basic.py -v
 
-### 3. 优化算法
-- 梯度下降
-- 动量法
-- Adam优化器
-- 学习率调度
+# 运行测试并生成覆盖率报告
+python -m pytest tests/ --cov=./ --cov-report=html
+```
 
-### 4. 实战应用
-- 图像分类
-- 价格预测
-- 文本生成
+## 学习路径
+
+### 第一阶段：基础入门
+1. **张量.ipynb** - 掌握PyTorch张量操作的基础
+2. **神经网络.ipynb** - 理解神经网络的基本结构和原理
+3. **梯度下降优化.ipynb** - 学习各种优化算法的实现
+4. **正则化.ipynb** - 了解防止过拟合的技术
+
+### 第二阶段：模型学习
+1. **深度学习模型简介.md** - 学习各种深度学习模型的理论
+2. **CNN卷积模型.ipynb** - 掌握卷积神经网络的实现
+3. **RNN卷积模型.ipynb** - 掌握循环神经网络的实现
+
+### 第三阶段：实战应用
+1. **图像识别案例.ipynb** - MNIST手写数字识别实战
+2. **手机价格分类案例.ipynb** - 机器学习分类任务实战
+3. **歌词生成器案例.ipynb** - 基于RNN的文本生成实战
+
+## 主要功能
+
+### 基础操作
+- ✅ 张量创建与操作
+- ✅ 自动求导机制
+- ✅ 神经网络构建
+- ✅ 模型训练流程
+
+### 模型实现
+- ✅ 全连接神经网络
+- ✅ 卷积神经网络(CNN)
+- ✅ 循环神经网络(RNN)
+
+### 实战案例
+- ✅ MNIST图像分类
+- ✅ 手机价格预测
+- ✅ 中文歌词生成
 
 ## 技术栈
 
-| 技术/库 | 版本要求 | 用途 |
-|---------|---------|------|
+| 技术/库 | 版本 | 用途 |
+|---------|------|------|
 | Python | 3.7+ | 编程语言 |
 | PyTorch | 1.8+ | 深度学习框架 |
-| torchvision | 对应PyTorch版本 | 计算机视觉工具 |
+| torchvision | - | 计算机视觉工具 |
 | numpy | 1.19+ | 数值计算 |
 | matplotlib | 3.3+ | 数据可视化 |
-| seaborn | 0.10+ | 统计数据可视化 |
+| seaborn | 0.10+ | 统计图表绘制 |
 | jieba | 0.42+ | 中文分词 |
 | torchsummary | 1.5+ | 模型结构可视化 |
+| pytest | 6.0+ | 单元测试框架 |
+| GitHub Actions | - | CI/CD自动化 |
+
+## CI/CD配置
+
+本项目使用GitHub Actions进行持续集成和持续部署：
+
+- **自动测试**：每次push或pull request时自动运行单元测试
+- **多版本测试**：在Python 3.7、3.8、3.9环境下测试
+- **代码质量检查**：使用flake8、black、isort进行代码风格检查
+- **测试覆盖率**：使用pytest-cov生成测试覆盖率报告
+- **自动构建**：通过后自动构建Python包
 
 ## 项目特点
 
-1. **循序渐进**：从基础张量操作到复杂模型应用，适合不同水平的学习者
-2. **理论与实践结合**：既有详细的理论解释，又有完整的代码实现
-3. **中文友好**：所有注释和说明均为中文，适合中文用户学习
-4. **实战导向**：包含多个真实案例，帮助理解深度学习的实际应用
-5. **代码清晰**：代码结构清晰，注释详细，易于理解和修改
+✨ **循序渐进** - 从基础到高级，适合不同水平的学习者  
+📚 **理论结合实践** - 既有详细的理论解释，又有完整的代码实现  
+🇨🇳 **中文友好** - 所有注释和说明均为中文  
+💻 **代码清晰** - 代码结构清晰，注释详细  
+🎯 **实战导向** - 通过真实案例加深理解  
 
-## 学习路径建议
+## 如何贡献
 
-1. **基础阶段**：
-   - 张量.ipynb → 神经网络.ipynb → 梯度下降优化.ipynb → 正则化.ipynb
+欢迎提交Issue和Pull Request！如果你发现了bug或者有新的想法，请随时联系我们。
 
-2. **模型学习**：
-   - 深度学习模型简介.md → CNN卷积模型.ipynb → RNN卷积模型.ipynb
+## 许可证
 
-3. **实战应用**：
-   - 图像识别案例.ipynb → 手机价格分类案例.ipynb → 歌词生成器案例.ipynb
-
-## 未来计划
-
-- 添加更多深度学习模型实现（如Transformer、GAN等）
-- 增加更多实战案例（如情感分析、机器翻译等）
-- 提供模型部署教程
-- 增加模型性能评估和对比分析
-
-## 致谢
-
-本项目参考了PyTorch官方文档和多个开源教程，旨在为深度学习初学者提供一个全面、系统的学习资源。
+本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE) 文件
 
 ---
+
+**注意**：本项目仅供学习和教学使用
