@@ -19,7 +19,7 @@ deep_learning/
 ├── 手机价格分类案例.ipynb       # 手机价格预测
 ├── 歌词生成器案例.ipynb        # 基于RNN的歌词生成
 ├── 歌词.py                  # 歌词处理工具
-├── 王楚之.jpg                # 示例图片
+├── photo.jpg                # 示例图片
 ├── .gitignore               # Git忽略文件
 └── README.MD                # 项目说明文档
 ```
