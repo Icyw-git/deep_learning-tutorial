@@ -29,11 +29,17 @@ deep_learning/
 │       ├── 图像识别案例.ipynb      # MNIST手写数字识别
 │       ├── 手机价格分类案例.ipynb    # 手机价格预测
 │       └── 歌词生成器案例.ipynb     # 基于RNN的歌词生成
-├── 歌词.py                      # 歌词处理工具
-├── requirements.txt             # Python依赖包
-├── .gitignore                  # Git忽略文件
-├── LICENSE                     # MIT许可证
-└── README.md                   # 项目说明文档
+├── tests/                      # 单元测试
+│   ├── test_basic.py           # 基础功能测试
+│   ├── test_models.py          # 模型测试
+│   └── test_simple.py          # 简单测试
+├── .github/workflows/          # GitHub Actions工作流
+│   └── python-ci.yml          # CI/CD配置
+├── pyproject.toml             # 项目配置文件
+├── requirements.txt           # Python依赖包
+├── .gitignore                # Git忽略文件
+├── LICENSE                   # MIT许可证
+└── README.md                 # 项目说明文档
 ```
 
 ## 快速开始
@@ -64,18 +70,33 @@ jupyter lab
 
 然后按照学习路径顺序打开notebooks学习。
 
-### 3. 运行测试
+### 3. 使用代码格式化工具
 
 ```bash
-# 运行所有测试
-python -m pytest tests/ -v
+# 使用black格式化代码
+black .
 
-# 运行特定测试文件
-python -m pytest tests/test_basic.py -v
+# 使用isort整理导入语句
+isort .
 
-# 运行测试并生成覆盖率报告
-python -m pytest tests/ --cov=./ --cov-report=html
+# 组合使用
+isort . && black .
+
+# 检查格式（不修改文件）
+black --check .
+isort --check .
 ```
+
+## 项目配置文件
+
+项目使用 `pyproject.toml` 进行统一配置：
+
+- **项目信息**：项目名称、版本、描述等
+- **代码格式化**：black和isort的配置
+- **测试配置**：pytest的配置
+- **代码检查**：flake8的配置
+
+确保所有开发者使用相同的工具配置，保持代码风格一致。
 
 ## 学习路径
 
@@ -126,7 +147,12 @@ python -m pytest tests/ --cov=./ --cov-report=html
 | jieba | 0.42+ | 中文分词 |
 | torchsummary | 1.5+ | 模型结构可视化 |
 | pytest | 6.0+ | 单元测试框架 |
+| pytest-cov | 2.10+ | 测试覆盖率工具 |
+| black | 22.0+ | 代码格式化工具 |
+| isort | 5.0+ | 导入语句整理工具 |
+| flake8 | 4.0+ | 代码质量检查工具 |
 | GitHub Actions | - | CI/CD自动化 |
+| pyproject.toml | - | 项目配置文件 |
 
 ## CI/CD配置
 
